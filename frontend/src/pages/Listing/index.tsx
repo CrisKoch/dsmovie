@@ -30,10 +30,14 @@ function Listing() {
     }, [pageNumber]);
     // se lista acima (linha 18) estiver vazia, só funciona quando for carregada a pagina
 
+    const handlePageChange = (newPageNumber: number) => {
+        setPageNumber(newPageNumber);
+    }
 
     return (
         <>
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange} />
+
             <div className="container">
                 <div className="row">
                     {page.content.map(movie => (
